@@ -10,7 +10,7 @@ namespace Cont {
 			sumWeights += boxes[i].getWeight();
 		}
 		if (sumWeights > limitWeight) {
-			throw Errors("Превышение лимита веса");
+			throw Errors("РџСЂРµРІС‹С€РµРЅРёРµ Р»РёРјРёС‚Р° РІРµСЃР°");
 		}
 		this->boxes = boxes;
 		this->length = length;
@@ -19,40 +19,40 @@ namespace Cont {
 		this->limitWeight = limitWeight;
 	}
 
-	//добавление коробки в контейнер по индексу
+	//РґРѕР±Р°РІР»РµРЅРёРµ РєРѕСЂРѕР±РєРё РІ РєРѕРЅС‚РµР№РЅРµСЂ РїРѕ РёРЅРґРµРєСЃСѓ
 	void Container::newBoxC(int i, Box box) {
 
 		if (i < 0 || i >= boxes.size()) {
-			throw Errors("Некорректный индекс");
+			throw Errors("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РёРЅРґРµРєСЃ");
 		}
 		double sum = sumWeights + box.getWeight();
 		if (sum > limitWeight) {
-			throw Errors("Превышение лимита веса");
+			throw Errors("РџСЂРµРІС‹С€РµРЅРёРµ Р»РёРјРёС‚Р° РІРµСЃР°");
 		}
 		sumWeights = sum;
 		boxes.insert(boxes.cbegin() + i, box);
 	}
 
-	//удаление коробки по индексу
+	//СѓРґР°Р»РµРЅРёРµ РєРѕСЂРѕР±РєРё РїРѕ РёРЅРґРµРєСЃСѓ
 	void Container::deleteBoxC(int i) {
 		if (i < 0 || i >= boxes.size()) {
-			throw Errors("Некорректный индекс");
+			throw Errors("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РёРЅРґРµРєСЃ");
 		}
 		sumWeights = sumWeights - boxes[i].getWeight();
 		boxes.erase(boxes.cbegin() + i - 1);
 	}
 
-	//кол-во коробок в контейнере
+	//РєРѕР»-РІРѕ РєРѕСЂРѕР±РѕРє РІ РєРѕРЅС‚РµР№РЅРµСЂРµ
 	int Container::countBoxesC() const {
 		return boxes.size();
 	}
 
-	//суммарн вес содержим контейнера
+	//СЃСѓРјРјР°СЂРЅ РІРµСЃ СЃРѕРґРµСЂР¶РёРј РєРѕРЅС‚РµР№РЅРµСЂР°
 	double Container::sumWeightC() const {
 		return sumWeights;
 	}
 
-	//суммарн стоимость содержим
+	//СЃСѓРјРјР°СЂРЅ СЃС‚РѕРёРјРѕСЃС‚СЊ СЃРѕРґРµСЂР¶РёРј
 	double Container::sumValueC() const {
 		double sum = 0;
 		for (int i = 0; i < boxes.size(); i++) {
@@ -61,19 +61,19 @@ namespace Cont {
 		return sum;
 	}
 
-	//получение коробки по индексу
+	//РїРѕР»СѓС‡РµРЅРёРµ РєРѕСЂРѕР±РєРё РїРѕ РёРЅРґРµРєСЃСѓ
 	Box Container::getBoxC(int i) const {
 		if (i < 0 || i >= boxes.size()) {
-			throw Errors("Некорректный индекс");
+			throw Errors("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РёРЅРґРµРєСЃ");
 		}
 		return boxes[i];
 	}
 
-	//добавление коробки в контейнер без индекса
+	//РґРѕР±Р°РІР»РµРЅРёРµ РєРѕСЂРѕР±РєРё РІ РєРѕРЅС‚РµР№РЅРµСЂ Р±РµР· РёРЅРґРµРєСЃР°
 	int Container::putBoxWithoutIndexC(Box box) {
 		double sum = sumWeights + box.getWeight();
 		if (sum > limitWeight) {
-			throw Errors("Превышение лимита веса");
+			throw Errors("РџСЂРµРІС‹С€РµРЅРёРµ Р»РёРјРёС‚Р° РІРµСЃР°");
 		}
 		sumWeights = sum;
 		boxes.push_back(box);
@@ -86,7 +86,7 @@ namespace Cont {
 
 	void Container::setLengthC(int length) {
 		if (length <= 0) {
-			throw Errors("Некорректная длина");
+			throw Errors("РќРµРєРѕСЂСЂРµРєС‚РЅР°СЏ РґР»РёРЅР°");
 		}
 		this->length = length;
 	}
@@ -97,7 +97,7 @@ namespace Cont {
 
 	void Container::setWidthC(int width) {
 		if (width <= 0) {
-			throw Errors("Некорректная ширина");
+			throw Errors("РќРµРєРѕСЂСЂРµРєС‚РЅР°СЏ С€РёСЂРёРЅР°");
 		}
 		this->width = width;
 	}
@@ -108,7 +108,7 @@ namespace Cont {
 
 	void Container::setHeightC(int height) {
 		if (height <= 0) {
-			throw Errors("Некорректная высота");
+			throw Errors("РќРµРєРѕСЂСЂРµРєС‚РЅР°СЏ РІС‹СЃРѕС‚Р°");
 		}
 		this->height = height;
 	}
@@ -128,10 +128,10 @@ namespace Cont {
 	void Container::setLimitWeightC(double limitWeight) {
 
 		if (limitWeight <= 0) {
-			throw Errors("Не может быть меньше 0");
+			throw Errors("РќРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РјРµРЅСЊС€Рµ 0");
 		}
 		if (sumWeights > limitWeight) {
-			throw Errors("Превышение лимита веса");
+			throw Errors("РџСЂРµРІС‹С€РµРЅРёРµ Р»РёРјРёС‚Р° РІРµСЃР°");
 		}
 		this->limitWeight = limitWeight;
 	}
@@ -158,19 +158,19 @@ namespace Cont {
 		int n;
 		in >> n >> length >> width >> height >> limitWeight;
 		if (length <= 0) {
-			throw Errors("Некорректная длина");
+			throw Errors("РќРµРєРѕСЂСЂРµРєС‚РЅР°СЏ РґР»РёРЅР°");
 		}
 		container.setLengthC(length);
 		if (width <= 0) {
-			throw Errors("Некорректная ширина");
+			throw Errors("РќРµРєРѕСЂСЂРµРєС‚РЅР°СЏ С€РёСЂРёРЅР°");
 		}
 		container.setWidthC(width);
 		if (height <= 0) {
-			throw Errors("Некорректная высота");
+			throw Errors("РќРµРєРѕСЂСЂРµРєС‚РЅР°СЏ РІС‹СЃРѕС‚Р°");
 		}
 		container.setHeightC(height);
 		if (limitWeight <= 0) {
-			throw Errors("Некорректный вес");
+			throw Errors("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРµСЃ");
 		}
 		container.setLimitWeightC(limitWeight);
 
